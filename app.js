@@ -291,6 +291,25 @@ console.log("Starbucks Map 起動");
 
 function addFavorite(name) {
 
+
+    let favorites = JSON.parse(
+        localStorage.getItem("favorites")
+    ) || [];
+
+
+    if (!favorites.includes(name)) {
+
+        favorites.push(name);
+
+    }
+
+
+    localStorage.setItem(
+        "favorites",
+        JSON.stringify(favorites)
+    );
+
+
     alert(
         name + " をお気に入りに追加しました"
     );
