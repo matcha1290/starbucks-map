@@ -89,25 +89,70 @@ alert("app.js確認");
 // 店舗ピン表示
 // 店舗データ読み込み
 
+let stores = [];
+
 fetch("stores.json")
     .then(response => response.json())
-    .then(stores => {
+    .then(data => {
+
+        stores = data;
 
         stores.forEach(store => {
 
             L.marker([store.lat, store.lng])
                 .addTo(map)
                 .bindPopup(
-    `
-    <b>${store.name}</b><br>
-    📍${store.address}<br>
-    🕒${store.hours}<br>
-    🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}<br>
-    🏢タイプ：${store.type}
-    `
-);
+                    `
+                    <b>${store.name}</b><br>
+                    📍${store.address}<br>
+                    🕒${store.hours}<br>
+                    🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}<br>
+                    🏢タイプ：${store.type}
+                    `
+                );
 
         });
 
     });
-  
+// 店舗検索機能
+
+const searchButton = document.getElementById("search-button");
+
+searchButton.addEventListener("click", () => {
+
+    const keyword = document
+        .getElementById("search-input")
+        .value;
+
+
+    const result = stores.filter(store => {
+
+        return (
+            store.name.includes(keyword) ||
+            store.address.includes(keyword) ||
+            store.prefecture.includes(keyword)
+        );
+
+    });
+
+
+    const resultArea = document.getElementById("search-result");
+
+    resultArea.innerHTML = "";
+
+
+    result.forEach(store => {
+
+        resultArea.innerHTML += `
+            <div>
+                <b>${store.name}</b><br>
+                📍${store.address}<br>
+                🕒${store.hours}
+                <hr>
+            </div>
+        `;
+
+    });
+
+
+});  
