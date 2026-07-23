@@ -73,6 +73,13 @@ function createPopup(store) {
         🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}<br>
         🏢タイプ：${store.type}<br><br>
 
+
+        <button onclick="addFavorite('${store.name}')">
+        ⭐ お気に入り追加
+        </button>
+        <br><br>
+
+
         <a 
         href="https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}"
         target="_blank">
@@ -280,3 +287,12 @@ resultArea.addEventListener(
 
 
 console.log("Starbucks Map 起動");
+// お気に入り追加（テスト）
+
+function addFavorite(name) {
+
+    alert(
+        name + " をお気に入りに追加しました"
+    );
+
+}
