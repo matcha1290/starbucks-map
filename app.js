@@ -187,9 +187,32 @@ document
 
         const store = stores[index];
 
+// 地図画面へ戻る
 
-        alert(
-            store.name + " が選択されました"
-        );
+document.getElementById("map").style.display = "block";
+document.getElementById("search-page").style.display = "none";
+
+
+// 店舗位置へ移動
+
+map.setView(
+    [store.lat, store.lng],
+    16
+);
+
+
+// ポップアップ表示
+
+L.popup()
+    .setLatLng([store.lat, store.lng])
+    .setContent(
+        `
+        <b>${store.name}</b><br>
+        📍${store.address}<br>
+        🕒${store.hours}<br>
+        🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}
+        `
+    )
+    .openOn(map);
 
     });
