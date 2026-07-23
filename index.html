@@ -47,3 +47,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 </body>
 </html>
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition((position) => {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+
+    L.marker([lat, lng]).addTo(map)
+      .bindPopup("現在地")
+      .openPopup();
+
+    map.setView([lat, lng], 14);
+  });
+}
