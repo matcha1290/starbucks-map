@@ -86,11 +86,14 @@ fetch("stores.json")
             L.marker([store.lat, store.lng])
                 .addTo(map)
                 .bindPopup(
-                    `
-                    <b>${store.name}</b><br>
-                    ${store.address}
-                    `
-                );
+    `
+    <b>${store.name}</b><br>
+    📍${store.address}<br>
+    🕒${store.hours}<br>
+    🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}<br>
+    🏢タイプ：${store.type}
+    `
+);
 
         });
 
