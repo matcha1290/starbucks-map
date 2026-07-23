@@ -52,9 +52,13 @@ navItems.forEach(item => {
 }
 
 
-        if (page === "search") {
-            alert("検索機能は準備中です");
-        }
+       if (page === "search") {
+
+    document.getElementById("map").style.display = "none";
+
+    document.getElementById("search-page").style.display = "block";
+
+}
 
 
         if (page === "favorite") {
