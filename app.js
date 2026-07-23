@@ -75,16 +75,23 @@ navItems.forEach(item => {
 console.log("Starbucks Map 起動");
 alert("app.js確認");
 // 店舗ピン表示
+// 店舗データ読み込み
 
-stores.forEach(store => {
+fetch("stores.json")
+    .then(response => response.json())
+    .then(stores => {
 
-    L.marker([store.lat, store.lng])
-        .addTo(map)
-        .bindPopup(
-            `
-            <b>${store.name}</b><br>
-            ${store.address}
-            `
-        );
+        stores.forEach(store => {
 
-});
+            L.marker([store.lat, store.lng])
+                .addTo(map)
+                .bindPopup(
+                    `
+                    <b>${store.name}</b><br>
+                    ${store.address}
+                    `
+                );
+
+        });
+
+    });
