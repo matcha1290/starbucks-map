@@ -210,9 +210,13 @@ L.popup()
         <b>${store.name}</b><br>
         📍${store.address}<br>
         🕒${store.hours}<br>
-        🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}
+        🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}<br><br>
+
+        <a 
+        href="https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}"
+        target="_blank">
+        🗺️ Googleマップで案内
+        </a>
         `
     )
     .openOn(map);
-
-    });
