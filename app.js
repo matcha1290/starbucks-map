@@ -74,3 +74,17 @@ navItems.forEach(item => {
 
 console.log("Starbucks Map 起動");
 alert("app.js確認");
+// 店舗ピン表示
+
+stores.forEach(store => {
+
+    L.marker([store.lat, store.lng])
+        .addTo(map)
+        .bindPopup(
+            `
+            <b>${store.name}</b><br>
+            ${store.address}
+            `
+        );
+
+});
