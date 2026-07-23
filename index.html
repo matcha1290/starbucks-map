@@ -1,29 +1,30 @@
-<script>
-const map = L.map('map').setView([35.681236, 139.767125], 6);
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Map</title>
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 
-// 現在地を取得
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
+    <!-- 自分のCSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
 
-            L.marker([lat, lng])
-                .addTo(map)
-                .bindPopup("📍現在地")
-                .openPopup();
+<body>
 
-            map.setView([lat, lng], 15);
-        },
-        (error) => {
-            alert("位置情報を取得できませんでした。位置情報を許可してください。");
-        }
-    );
-} else {
-    alert("このブラウザは位置情報に対応していません。");
-}
-</script>
+<header>
+☕ Starbucks Map
+</header>
+
+<div id="map"></div>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- 自分のJavaScript -->
+<script src="app.js"></script>
+
+</body>
+</html>
