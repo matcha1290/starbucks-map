@@ -118,7 +118,7 @@ fetch("stores.json")
 
 const searchButton = document.getElementById("search-button");
 
-searchButton.addEventListener("click", () => {
+function searchStores() {
 
     const keyword = document
         .getElementById("search-input")
@@ -154,5 +154,20 @@ searchButton.addEventListener("click", () => {
 
     });
 
+}
 
-});  
+
+// 検索ボタン
+searchButton.addEventListener("click", searchStores);
+
+
+// Enterキーでも検索
+document
+    .getElementById("search-input")
+    .addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter") {
+            searchStores();
+        }
+
+    });
