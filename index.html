@@ -15,36 +15,41 @@
 <body>
 
 <header>
-☕ Starbucks Map
+    ☕ Starbucks Map
 </header>
 
-<div id="map"></div>
+<div id="content">
+    <div id="map"></div>
+</div>
+
 <nav>
-    <div class="nav-item active">
+    <div class="nav-item active" data-page="map">
         <span>🗺️</span>
-        Map
+        <br>Map
     </div>
 
-    <div class="nav-item">
+    <div class="nav-item" data-page="search">
         <span>🔍</span>
-        Search
+        <br>Search
     </div>
 
-    <div class="nav-item">
+    <div class="nav-item" data-page="favorite">
         <span>⭐</span>
-        Favorite
+        <br>Favorite
     </div>
 
-    <div class="nav-item">
+    <div class="nav-item" data-page="stats">
         <span>📊</span>
-        Stats
+        <br>Stats
     </div>
 
-    <div class="nav-item">
+    <div class="nav-item" data-page="settings">
         <span>⚙️</span>
-        Settings
+        <br>Settings
     </div>
 </nav>
+
+
 <!-- Leaflet -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
