@@ -78,3 +78,10 @@ nav {
 #search-result {
     margin-top: 20px;
 }
+.store-result {
+    cursor: pointer;
+}
+
+.store-result:hover {
+    background: #eeeeee;
+}

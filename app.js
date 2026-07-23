@@ -141,19 +141,18 @@ function searchStores() {
     resultArea.innerHTML = "";
 
 
-    result.forEach(store => {
+   result.forEach((store, index) => {
 
-        resultArea.innerHTML += `
-            <div>
-                <b>${store.name}</b><br>
-                📍${store.address}<br>
-                🕒${store.hours}
-                <hr>
-            </div>
-        `;
+    resultArea.innerHTML += `
+        <div class="store-result" data-index="${index}">
+            <b>${store.name}</b><br>
+            📍${store.address}<br>
+            🕒${store.hours}
+            <hr>
+        </div>
+    `;
 
-    });
-
+});
 }
 
 
@@ -169,5 +168,28 @@ document
         if (event.key === "Enter") {
             searchStores();
         }
+
+    });
+    // 検索結果クリック
+
+document
+    .getElementById("search-result")
+    .addEventListener("click", (event) => {
+
+        const target = event.target.closest(".store-result");
+
+        if (!target) {
+            return;
+        }
+
+
+        const index = target.dataset.index;
+
+        const store = stores[index];
+
+
+        alert(
+            store.name + " が選択されました"
+        );
 
     });
