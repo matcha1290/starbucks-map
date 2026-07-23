@@ -43,10 +43,6 @@ const map = L.map('map').setView([35.681236, 139.767125], 6);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:'© OpenStreetMap contributors'
 }).addTo(map);
-</script>
-
-</body>
-</html>
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition((position) => {
     const lat = position.coords.latitude;
@@ -58,4 +54,7 @@ if (navigator.geolocation) {
 
     map.setView([lat, lng], 14);
   });
-}
+}</script>
+
+</body>
+</html>
