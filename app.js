@@ -44,8 +44,12 @@ navItems.forEach(item => {
 
 
         if (page === "map") {
-            alert("地図を表示します");
-        }
+
+    document.getElementById("map").style.display = "block";
+
+    document.getElementById("search-page").style.display = "none";
+
+}
 
 
         if (page === "search") {
@@ -63,9 +67,13 @@ navItems.forEach(item => {
         }
 
 
-        if (page === "settings") {
-            alert("設定画面は準備中です");
-        }
+        if (page === "search") {
+
+    document.getElementById("map").style.display = "none";
+
+    document.getElementById("search-page").style.display = "block";
+
+}
 
     });
 
@@ -98,3 +106,4 @@ fetch("stores.json")
         });
 
     });
+  
