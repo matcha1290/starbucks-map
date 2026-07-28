@@ -74,9 +74,9 @@ function createPopup(store) {
         🏢タイプ：${store.type}<br><br>
 
 
-        <button onclick="addFavorite('${store.name}')">
-        ⭐ お気に入り追加
-        </button>
+        <button onclick='addFavorite(${JSON.stringify(store)})'>
+⭐ お気に入り追加
+</button>
         <br><br>
 
 
@@ -124,9 +124,16 @@ navItems.forEach(item => {
 
         if (page === "favorite") {
 
-            alert("お気に入り機能は準備中です");
+    mapPage.style.display = "none";
+    searchPage.style.display = "none";
 
-        }
+    document.getElementById("favorite-page")
+        .style.display = "block";
+
+
+    showFavorites();
+
+}
 
 
         if (page === "stats") {
@@ -289,7 +296,7 @@ resultArea.addEventListener(
 console.log("Starbucks Map 起動");
 // お気に入り追加（テスト）
 
-function addFavorite(name) {
+function addFavorite(store) {
 
 
     let favorites = JSON.parse(
@@ -297,9 +304,14 @@ function addFavorite(name) {
     ) || [];
 
 
-    if (!favorites.includes(name)) {
+    const exists = favorites.some(
+        favorite => favorite.name === store.name
+    );
 
-        favorites.push(name);
+
+    if (!exists) {
+
+        favorites.push(store);
 
     }
 
@@ -311,7 +323,42 @@ function addFavorite(name) {
 
 
     alert(
-        name + " をお気に入りに追加しました"
+        store.name + " をお気に入りに追加しました"
     );
+
+}
+function showFavorites() {
+
+
+    const list =
+        document.getElementById("favorite-list");
+
+
+    const favorites =
+        JSON.parse(
+            localStorage.getItem("favorites")
+        ) || [];
+
+
+    list.innerHTML = "";
+
+
+    favorites.forEach((store,index)=>{
+
+
+        list.innerHTML += `
+
+        <div class="favorite-item"
+        data-index="${index}">
+
+        ☕ ${store.name}<br>
+        📍${store.address}
+
+        </div>
+
+        `;
+
+
+    });
 
 }

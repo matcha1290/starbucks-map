@@ -85,3 +85,24 @@ nav {
 .store-result:hover {
     background: #eeeeee;
 }
+#favorite-page {
+
+    display:none;
+    padding:20px;
+
+}
+
+
+.favorite-item {
+
+    cursor:pointer;
+    padding:10px;
+
+}
+
+
+.favorite-item:hover {
+
+    background:#eeeeee;
+
+}
