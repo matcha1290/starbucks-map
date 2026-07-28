@@ -52,9 +52,18 @@ function createPopup(store) {
         🚗ドライブスルー：${store.driveThrough ? "あり" : "なし"}<br>
         🏢タイプ：${store.type}<br><br>
 
-        <button onclick='addFavorite(${JSON.stringify(store)})'>
-        ⭐ お気に入り追加
+        ${isFavorite(store.name)
+    ? `
+        <button onclick="removeFavorite('${store.name}')">
+        ★ お気に入り解除
         </button>
+      `
+    : `
+        <button onclick='addFavorite(${JSON.stringify(store)})'>
+        ☆ お気に入り追加
+        </button>
+      `
+}
         <br><br>
 
         <a 
@@ -77,13 +86,13 @@ fetch("stores.json")
         stores = data;
 
 
-        stores.forEach(store => {
+       stores.forEach(store => {
 
-            L.marker([store.lat, store.lng])
-                .addTo(map)
-                .bindPopup(createPopup(store));
+    L.marker([store.lat, store.lng])
+        .addTo(map)
+        .bindPopup(createPopup(store));
 
-        });
+});
 
     });
 
