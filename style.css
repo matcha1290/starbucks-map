@@ -1,108 +1,175 @@
-html, body {
+/* ===========================
+   共通
+=========================== */
+
+html,
+body {
     margin: 0;
+    padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
+* {
+    box-sizing: border-box;
+}
 
-/* ヘッダー */
+/* ===========================
+   ヘッダー
+=========================== */
+
 header {
-    height: 50px;
-    background: white;
+    height: 60px;
+    background: #006241;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
 }
 
+/* ===========================
+   コンテンツ
+=========================== */
 
-/* 地図 */
+#content {
+    height: calc(100vh - 130px);
+    position: relative;
+}
+
+/* ===========================
+   地図
+=========================== */
+
 #map {
-    height: calc(100vh - 120px);
     width: 100%;
+    height: 100%;
 }
 
+/* ===========================
+   検索画面
+=========================== */
 
-/* 下部メニュー */
+#search-page,
+#favorite-page {
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 15px;
+
+}
+
+#search-input {
+
+    width: calc(100% - 90px);
+
+    padding: 10px;
+
+    font-size: 16px;
+
+}
+
+#search-button {
+
+    width: 70px;
+
+    padding: 10px;
+
+    cursor: pointer;
+
+}
+
+.store-result {
+
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+    cursor: pointer;
+
+}
+
+.store-result:hover {
+
+    background: #f5f5f5;
+
+}
+
+/* ===========================
+   お気に入り
+=========================== */
+
+.favorite-store {
+
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+    cursor: pointer;
+
+}
+
+.favorite-store:hover {
+
+    background: #f5f5f5;
+
+}
+
+/* ===========================
+   下部メニュー
+=========================== */
+
 nav {
+
     position: fixed;
+
     bottom: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 70px;
 
     background: white;
 
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
 
-    box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+    border-top: 1px solid #ddd;
 
-    z-index: 9999;
 }
 
-
-/* メニュー項目 */
 .nav-item {
+
     flex: 1;
+
     text-align: center;
 
-    font-size: 12px;
-
     cursor: pointer;
+
     user-select: none;
-}
 
-
-.nav-item span {
-    font-size: 22px;
-}
-#search-page {
-    display: none;
-    padding: 20px;
-}
-
-#search-input {
-    width: 70%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#search-button {
-    padding: 10px;
-}
-
-#search-result {
-    margin-top: 20px;
-}
-.store-result {
-    cursor: pointer;
-}
-
-.store-result:hover {
-    background: #eeeeee;
-}
-#favorite-page {
-
-    display:none;
-    padding:20px;
+    padding: 8px 0;
 
 }
 
+.nav-item.active {
 
-.favorite-item {
+    color: #006241;
 
-    cursor:pointer;
-    padding:10px;
-
-}
-
-
-.favorite-item:hover {
-
-    background:#eeeeee;
+    font-weight: bold;
 
 }
