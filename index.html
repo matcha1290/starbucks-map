@@ -1,82 +1,96 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starbucks Map</title>
 
     <!-- Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet/dist/leaflet.css">
 
-    <!-- 自分のCSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    ☕ Starbucks Map
-</header>
+    <header>
+        ☕ Starbucks Map
+    </header>
 
-<div id="content">
+    <main id="content">
 
-    <div id="map"></div>
+        <!-- 地図 -->
+        <div id="map"></div>
 
-    <div id="search-page">
-        <input 
-            type="text" 
-            id="search-input" 
-            placeholder="店舗名・地域で検索">
+        <!-- 検索画面 -->
+        <section id="search-page">
 
-        <button id="search-button">
-            検索
-        </button>
+            <input
+                type="text"
+                id="search-input"
+                placeholder="店舗名・住所・都道府県で検索">
 
-        <div id="search-result"></div>
-    </div>
-    <div id="favorite-page">
+            <button id="search-button">
+                検索
+            </button>
 
-    <h2>⭐ お気に入り</h2>
+            <div id="search-result"></div>
 
-    <div id="favorite-list"></div>
+        </section>
 
-</div>
+        <!-- お気に入り画面 -->
+        <section id="favorite-page">
 
-<nav>
-    <div class="nav-item active" data-page="map">
-        <span>🗺️</span>
-        <br>Map
-    </div>
+            <h2>⭐ お気に入り</h2>
 
-    <div class="nav-item" data-page="search">
-        <span>🔍</span>
-        <br>Search
-    </div>
+            <div id="favorite-list"></div>
 
-    <div class="nav-item" data-page="favorite">
-        <span>⭐</span>
-        <br>Favorite
-    </div>
+        </section>
 
-    <div class="nav-item" data-page="stats">
-        <span>📊</span>
-        <br>Stats
-    </div>
+    </main>
 
-    <div class="nav-item" data-page="settings">
-        <span>⚙️</span>
-        <br>Settings
-    </div>
-</nav>
+    <!-- 下部メニュー -->
+    <nav>
 
+        <div class="nav-item active" data-page="map">
+            <span>🗺️</span><br>
+            Map
+        </div>
 
-<!-- Leaflet -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<!-- 自分のJavaScript -->
-<script src="map.js"></script>
-<script src="search.js"></script>
-<script src="favorite.js"></script>
-<script src="app.js"></script>
+        <div class="nav-item" data-page="search">
+            <span>🔍</span><br>
+            Search
+        </div>
+
+        <div class="nav-item" data-page="favorite">
+            <span>⭐</span><br>
+            Favorite
+        </div>
+
+        <div class="nav-item" data-page="stats">
+            <span>📊</span><br>
+            Stats
+        </div>
+
+        <div class="nav-item" data-page="settings">
+            <span>⚙️</span><br>
+            Settings
+        </div>
+
+    </nav>
+
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- JavaScript -->
+    <script src="map.js"></script>
+    <script src="search.js"></script>
+    <script src="favorite.js"></script>
+    <script src="app.js"></script>
 
 </body>
+
 </html>
