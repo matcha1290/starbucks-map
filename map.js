@@ -88,7 +88,7 @@ fetch("stores.json")
 
        stores.forEach(store => {
 
-    L.marker([store.lat, store.lng])
+    store.marker = L.marker([store.lat, store.lng])
         .addTo(map)
         .bindPopup(createPopup(store));
 
